@@ -1,16 +1,21 @@
 <h3>Todos List:</h3>
 <!-- old Angular Syntax -->
-<!-- <ul>
-  <li *ngFor="let todo of todoItems()">
-    {{ todo.title }}: {{ todo.completed ? "Done" : "Pending" }}
-  </li>
-</ul> -->
-<!--  New Angular Syntax -->
-<ul class="todos">
-  @for (todo of todoItems(); track todo.id) {
-  <li class="todos__item">
+<!-- <p *ngIf="!todoItems().length">Loading...</p>
+<ul>
+  <li class="todos__item" *ngFor="let todo of todoItems()">
     <input id="todo-{{ todo.id }}" type="checkbox" [value]="todo.completed" />
     <label for="todo-{{ todo.id }}">{{ todo.title }}</label>
   </li>
+</ul> -->
+<!--  New Angular Syntax -->
+@if (!todoItems().length) {
+<p>Loading...</p>
+}
+<ul class="todos">
+  @for (todo of todoItems(); track todo.id) {
+  <app-todo-item
+    [todo]="todo"
+    (todoToggeled)="updateTodoItem($event)"
+  ></app-todo-item>
   }
 </ul>
