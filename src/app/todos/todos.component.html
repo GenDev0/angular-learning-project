@@ -1,13 +1,16 @@
 <h3>Todos List:</h3>
 <!-- old Angular Syntax -->
-<ul>
+<!-- <ul>
   <li *ngFor="let todo of todoItems()">
     {{ todo.title }}: {{ todo.completed ? "Done" : "Pending" }}
   </li>
-</ul>
+</ul> -->
 <!--  New Angular Syntax -->
-<ul>
+<ul class="todos">
   @for (todo of todoItems(); track todo.id) {
-  <li>{{ todo.title }}: {{ todo.completed ? "Done" : "Pending" }}</li>
+  <li class="todos__item">
+    <input id="todo-{{ todo.id }}" type="checkbox" [value]="todo.completed" />
+    <label for="todo-{{ todo.id }}">{{ todo.title }}</label>
+  </li>
   }
 </ul>
