@@ -1,1 +1,13 @@
-<p>todos works!</p>
+<h3>Todos List:</h3>
+<!-- old Angular Syntax -->
+<ul>
+  <li *ngFor="let todo of todoItems()">
+    {{ todo.title }}: {{ todo.completed ? "Done" : "Pending" }}
+  </li>
+</ul>
+<!--  New Angular Syntax -->
+<ul>
+  @for (todo of todoItems(); track todo.id) {
+  <li>{{ todo.title }}: {{ todo.completed ? "Done" : "Pending" }}</li>
+  }
+</ul>
