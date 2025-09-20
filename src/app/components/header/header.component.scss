@@ -6,4 +6,35 @@ header {
     color: white;
     align-items: center;
     justify-content: space-between;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    
+    nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+
+        h1 {
+            margin: 0;
+            font-size: 1.5rem;
+            cursor: pointer;
+            &:hover {
+                    color: rgb(80, 218, 223);
+                }
+        }
+    
+        ul {
+            list-style: none;
+            display: flex;
+            gap: 16px;
+            
+            li {
+                cursor: pointer;
+                &:hover {
+                    text-decoration: underline;
+                    color: rgb(80, 218, 223);
+                }
+            }
+        }
+    }
 }
